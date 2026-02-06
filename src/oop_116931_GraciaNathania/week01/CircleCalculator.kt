@@ -1,6 +1,6 @@
 package oop_116931_GraciaNathania.week01
 
-fun main(args: Array<String>) {
+fun main() {
     val radius = 7.0
     val pi = 3.14
 

@@ -23,5 +23,20 @@ fun main(){
 
     println("\n-- Test 3: Cek Tier --")
     println("Tier Senjata: ${myWeapon.tier}")
+
+
+    val player = Player("Graceee")
+
+    println("--- Testing Player Leveling ---")
+
+    //player.xp = 500
+
+    println("Menambah 50 XP")
+    player.addXp(50)
+    println("Level saat ini: ${player.level}")
+
+    println("\nMenambah 60 XP")
+    player.addXp(60)
+    println("Level saat ini: ${player.level}")
 }
 

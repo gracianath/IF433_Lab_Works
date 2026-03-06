@@ -24,4 +24,15 @@ fun main(){
         }
         println("-----------------------------")
     }
+
+    println("=== TUGAS 1 ===")
+    val hitungPersegi = MathHelper()
+    println("Luas Persegi = ${hitungPersegi.hitungLuasPersegi(3)}")
+
+    val hitungPersegiPanjang = MathHelper()
+    println("Luas Persegi Panjang = ${hitungPersegiPanjang.hitungLuasPersegiPanjang(4,2)}")
+
+    val hitungLingkaran = MathHelper()
+    println("Luas Lingkaran = ${hitungLingkaran.hitungLuasLingkaran(5.2)}")
+
 }

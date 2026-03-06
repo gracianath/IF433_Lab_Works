@@ -9,6 +9,7 @@ fun main(){
     println("=== AKTIVITAS PEGAWAI ===")
     for (pegawai in daftarPegawai) {
         pegawai.bekerja()
+        //pegawai.mengajar()
 
         when(pegawai){
             is Dosen -> {

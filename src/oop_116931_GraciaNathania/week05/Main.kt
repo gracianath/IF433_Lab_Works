@@ -37,12 +37,20 @@ fun main(){
 
     println("=== TUGAS 2 ===")
     val eWallet1 = EWallet("Budi", 50000.0)
-    val card1 = CreditCard(100000.0, 1000000.0, "Budi")
+    val card1 = CreditCard("Budi", 100000.0)
 
     val payments: List<PaymentMethod> = listOf(eWallet1, card1)
 
     for (payment in payments) {
         println("--- Memproses pembayaran untuk: ${payment.accountName} ---")
         payment.processPayment(75000.0)
+
+        when (payment) {
+            is EWallet -> {
+                payment.topUp(50000.0)
+                payment.processPayment(75000.0)
+            }
+        }
     }
+
 }

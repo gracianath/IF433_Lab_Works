@@ -15,7 +15,7 @@ fun main() {
         try {
             parser.parseProduct(raw)?.let { product ->
                 when (product) {
-                    is Electronic -> println("Product: ${product.name}, Warranty: ${product.warrantyMonths}"),
+                    is Electronic -> println("Product: ${product.name}, Warranty: ${product.warrantyMonths}")
                     is Clothing -> println("Product: ${product.name}, Size: ${product.size}")
                 }
 

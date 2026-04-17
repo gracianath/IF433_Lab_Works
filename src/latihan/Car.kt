@@ -1,4 +1,4 @@
-package oop_001_johnthor.week04
+package latihan
 
 open class Car(brand: String, val numberOfDoors: Int) : Vehicle(brand){
     fun openTrunk(){

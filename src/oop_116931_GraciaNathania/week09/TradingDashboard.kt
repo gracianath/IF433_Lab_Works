@@ -1,5 +1,7 @@
 package oop_116931_GraciaNathania.week09
 
+import java.util.Locale
+
 fun main(){
     val tradeHistory = listOf(
         TradeLog(pair = "BTCUSDT", position = "LONG",  leverage = 20, roe = 15.5, status = "CLOSED"),
@@ -15,4 +17,14 @@ fun main(){
     val closedTrades = tradeHistory.filter { it.status == "CLOSED"}
 
     val winningTrades = closedTrades.filter { it.roe > 0 }
-}
+
+    val losingTrades = closedTrades.filter { it.roe <= 0 }
+
+    val topPerformersString = winningTrades
+        .sortedByDescending { it.roe }
+        .map {
+            "WIN [${it.pair} - ${it.position}]: ${
+                String.format(Locale.US, "%+.1f%%", it.roe)
+            } ROE (Lev: ${it.leverage}x)"
+            }
+        }

@@ -40,10 +40,9 @@ fun main(){
         .map { it.pair }
         .toSet()
 
-    println("==== CRYPTO TRADING DASHBOARD ====")
+    println("===== CRYPTO TRADING DASHBOARD =====")
     topPerformersString.forEach { println(it) }
 
     worstPerformersString.forEach { println(it) }
-    println("Unique Pairs: $uniquePairs")
-
+    println("Unique Pairs= $uniquePairs")
 }

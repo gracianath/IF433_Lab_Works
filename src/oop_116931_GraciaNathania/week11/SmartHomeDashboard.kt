@@ -30,4 +30,8 @@ fun main(){
         println("Hasil Pencarian Kamera:")
         println(it.diagnose())
     }
+
+    with(homeDevices) {
+        println("\nTotal Perangkat Terdaftar: ${this.size}")
+    }
 }

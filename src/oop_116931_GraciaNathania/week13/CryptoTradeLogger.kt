@@ -51,4 +51,6 @@ fun main() {
 
     val filePath = "crypto_trades.csv"
     saveTrades(trades, filePath)
+
+    File(filePath).appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
 }

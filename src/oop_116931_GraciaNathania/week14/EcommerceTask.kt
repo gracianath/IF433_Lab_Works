@@ -34,7 +34,8 @@ class CsvOrderRepository(
         itemName: String,
         finalPrice: Double
     ) {
-        File(filePath).bufferedWriter(Charsets.UTF_8, true).use { writer ->
+
+        File(filePath).bufferedWriter().use { writer ->
             writer.append("$itemName,$finalPrice\n")
         }
     }
@@ -74,3 +75,59 @@ class SafeOrderProcessor(
     }
 }
 
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+}
+
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double): Double {
+        return price
+    }
+}
+
+class VipPricing : PricingStrategy {
+    override fun calculate(price: Double): Double {
+        return price * 0.90
+    }
+}
+
+class MemberPricing : PricingStrategy {
+    override fun calculate(price: Double): Double {
+        return price * 0.95
+    }
+}
+
+fun main() {
+    val repository = CsvOrderRepository("orders.csv")
+    val notifier = EmailNotifier()
+
+    val processor = SafeOrderProcessor(
+        repository,
+        notifier
+    )
+
+    println("=== REGULAR CUSTOMER ===")
+    processor.processOrder(
+        itemName = "Laptop",
+        basePrice = 8000000.0,
+        pricingStrategy = RegularPricing()
+    )
+
+    println()
+
+    println("=== VIP CUSTOMER ===")
+    processor.processOrder(
+        itemName = "Smartphone",
+        basePrice = 5000000.0,
+        pricingStrategy = VipPricing()
+    )
+
+    println()
+
+    println("=== MEMBER CUSTOMER ===")
+    processor.processOrder(
+        itemName = "Keyboard Mechanical",
+        basePrice = 1500000.0,
+        pricingStrategy = MemberPricing()
+    )
+}

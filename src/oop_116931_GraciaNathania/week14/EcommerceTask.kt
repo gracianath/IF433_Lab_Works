@@ -70,7 +70,7 @@ class SafeOrderProcessor(
         repo.saveOrder(itemName, finalPrice)
 
         notifier.sendNotification(
-            "Pesanan $itemName Anda telah dikonfirmasi!"
+            "Pesanan $itemName Anda telah dikonfirmasi!!"
         )
     }
 }
